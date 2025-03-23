@@ -1,0 +1,67 @@
+server:
+  port: 5050
+
+spring:
+  application:
+    name: reuse_market
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/reuse_market?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 8
+        min-idle: 0
+        max-wait: 100
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: token
+  # token有效期，单位s 默认30天, -1代表永不过期
+  timeout: 86400
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  activity-timeout: -1
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: false
+  # token风格
+  token-style: uuid
+  # 是否输出操作日志
+  is-log: false
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+minio:
+  endpoint: http://192.168.128.20:9000
+  accesskey: xyz
+  secret-key: 12345678
+  bucket: xyz
+
+security:
+  white-list:
+    - /product/info/page
+    - /product/info/detail
+    - /product/type
+
+alipay:
+  # 应用ID，沙箱应用id
+  appId: 9021000145614619
+  # 应用私钥
+  appPrivateKey: MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDAl4/Cq/GiZ4QXVoTnL+fPeSBTO0W6KxhxSNxN18+TwtMZiUIM95ms92KdvGxpBE5qhzPPKX4NHrcPvBt7/2DpkQeO/wOy5tpO07sK27CrCrt6sJL/7zG35oaHgG3ZUn/4DyoGH81sVzYKzFkiA2rl5Tu2C4CJIYaa7ak7pfTBPN1eNqc8FWe5h5QuCkWqAVL/XqY/gkFp5tNgNC+FsACydJUqsBerK/WmvOcfxa1nhNe51NfOZkTTyRY2fg7AOI4qaHKKkt4HZG7ZGjUQzI7/U9gSA28kKeY0XLH6oHplPr6POS0MHYVEGy3hY9jm5Yi5gORhXetkDGqVyHei0j9JAgMBAAECggEAYGE4q2Za5ThCjV9Z4UxDCLwIJj7qVRFOCRs6TKZslfiQph3fdRfPyxR+QIvUAPYLvBnvHoQYNb6iQ/iSFIqn2BshGjmag0QuCfbBityIXABh9DM7TWNJkUuHFXZ7Ap/btKr6D9iId+ho/hxnmrL1IxmFuUOmTnn9n7jB0Tzq8GyD4ccbsVFUb6uGfvE6VI4eRa7r8hZxXl5hh8scOWe53YVePvr7132vxBFnk0hxMEMQZimwsaiE4uugEc5YWwo5H2oEL+SIaa2QSrBDPVp53qJsUbz/E1ovzFr/9X5RcNZa84uVNqO091hMUyN1CdNn0W5sy/PAJI9Nnv8c16x5RQKBgQDh3u8Wo6qk5PY4GSD0wHxv95G57oEwM7or9qNpokQoY7hfFNxiBvwiIM1Nbaew7u20IWmzWZwKN8kXMasoeTvhGWY7Nl56OOoKqNTFCiZ2lmPhWuXop0tSsacskkicBhcemtylZxUCS1XJMmOnoC09SCunkoBaI2/bWYiHx7hgRwKBgQDaSDgPKuOH9efiJZoWUTp+Owjtdrm+dUzaUa7nBuHpBHSSyCDahOHcrFqOLVoH7JZac4lR58u/LRYaB9di7/k7hXWN/sBPfqiFzCcDEBqFlfssRKjTTMTzA/yiqrpGNVGC4yVcoFW8Q6/kNzvDbQq5erqfYccwIf6aqQ/RFIA77wKBgCAig4mJB4ImQRGCIbowmIOliUoWsLKW6WnP0Tf6KhBE/7onUaNwsvZ4DD1z2GPH2nHCPzOREC4z+ZwfKOa9ONOxtWW/OnnRFxslIgBWjVpZ0yQAtqz/ACxnsg0ZUtM/2pI0Hig6HjcRWMcjMCJtG4KYff19Tl2EpSlj95S5yXWJAoGBAJnGEMAWrc4FXYNCjCe2t6dfvW1Um4viJO8UZkvY3GOEwP76v7JRtK/6N507s9YrRMyZ4h5yVmXqxEw4Q/MuLX1SCruqwR3/k4cWiFEvEhAT1auc/vZEeebdYyfRcIKvYyn7DUIQrfWAFbSHeLG26rw6CqjngCSXfj7EZSEc+S2/AoGBAL9DXYK6ncHwv6S0Lgjx9qRRW/xdLiqHTAex7sS8dLRCdU8CQYwut2slN4l1LS+FpQzy+C0mTmZtYNJPX9HVTx8D/e5U/dIh+FFpZVLQFoEZH50pm9K5qTPmhssNZ89YaREpYbdKxeX+1GL0g/5p7gRmkfpqusN37PcHbZonw+hf
+  # 支付宝公钥
+  alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqrYULK94fLhk086eVsuynj/1Km7YkXhl/vUojNzv6fFBWlY7ICivoNCT7UamKga/7TzGGtMABU+iZnhYkWwXCuwYpFMwKTNEBJgFrd89Jo0ga37+x50oYGZ79GjeLV5bHk+SnfUX2DKkAh8dtuEvGFxkRWeZjn9nr3/Xd6UwqXqNqacyuFzSAjH39R+Jjbold/J/tAarb2+KMxTsU0JojFRkShTSE18LJPWbzKig7udQSMHtnSrd80hwO31KFG1mzO1CH7EL5ezAk4g5u/oh17EC+od7TurvEYc9u4+N11YlcHkYt/vhEWT/iyzRGVYbQ2A2qV6KnPuRYTuq4SfcdQIDAQAB
+  # 异步回调地址，当前dome中并未使用
+  notifyUrl:
+
+
+
