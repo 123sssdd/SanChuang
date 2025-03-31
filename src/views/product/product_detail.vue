@@ -35,7 +35,7 @@
       <el-divider></el-divider>
       <div class="header-title" style="margin-top: 10px;margin-bottom: 15px;font-size: 18px">卖家信息</div>
       <el-descriptions :column="3" border>
-        <el-descriptions-item label="卖家闲宝号">{{ user.number }}</el-descriptions-item>
+        <el-descriptions-item label="卖家创创碰号">{{ user.number }}</el-descriptions-item>
         <el-descriptions-item label="卖家昵称">{{ user.nickName }}</el-descriptions-item>
         <el-descriptions-item label="卖家电话">{{ user.phone }}</el-descriptions-item>
       </el-descriptions>

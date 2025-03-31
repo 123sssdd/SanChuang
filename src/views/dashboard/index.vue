@@ -17,7 +17,7 @@
               </div>
               <el-divider></el-divider>
               <div class="loginInfo">
-                <div style="font-weight: bolder;font-size: 18px;color: #409EFF;">欢迎登录 原创力后台管理系统 ！</div>
+                <div style="font-weight: bolder;font-size: 18px;color: #409EFF;">欢迎登录 创创碰后台管理系统 ！</div>
                 <p style="margin-top: 20px">上次登录时间：<span>{{ $utils.convert.parseTime(userInfo.updateTime) }}</span></p>
               </div>
             </el-card>

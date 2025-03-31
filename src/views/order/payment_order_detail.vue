@@ -30,7 +30,7 @@
 
       <el-descriptions :column="3" border>
         <el-descriptions-item label="用户昵称">{{ user.nickName }}</el-descriptions-item>
-        <el-descriptions-item label="闲宝号">{{ user.number }}</el-descriptions-item>
+        <el-descriptions-item label="创创碰号">{{ user.number }}</el-descriptions-item>
         <el-descriptions-item label="联系电话">{{ user.phone }}</el-descriptions-item>
       </el-descriptions>
     </div>

@@ -2,7 +2,7 @@
   <div class="app-container">
     <div class="demo-input-suffix">
       <el-input
-          placeholder="用户昵称、闲宝号"
+          placeholder="用户昵称、创创碰号"
           prefix-icon="el-icon-search"
           v-model="page_param.key"
           @input="getQueryList"
@@ -27,7 +27,7 @@
           {{ scope.row.nickName }}
         </template>
       </el-table-column>
-      <el-table-column align="center" label="闲宝号">
+      <el-table-column align="center" label="创创碰号">
         <template slot-scope="scope">
           {{ scope.row.number }}
         </template>
