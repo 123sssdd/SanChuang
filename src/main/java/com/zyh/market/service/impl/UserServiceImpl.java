@@ -181,10 +181,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     // 3. 构建短信发送请求对象
     SendSmsUtil.MySendSmsRequest request = new SendSmsUtil.MySendSmsRequest();
     request.setPhone(phone);
-    request.setSmsSdkAppId("1400971744"); // 替换为你的应用ID
-    request.setSecretId("AKIDHQM4bv3xxqWyDH9qKhuxnRyKSN6ey5yf");         // 替换为你的 SecretId
-    request.setSecretKey("Zu1vfDYgaIm36wa1ED0ax73nJchZnupV");       // 替换为你的 SecretKey
-    request.setSignName("杭州夏品家居设计有限公司");         // 替换为你的签名
+    request.setSmsSdkAppId(""); // 替换为你的应用ID
+    request.setSecretId("");         // 替换为你的 SecretId
+    request.setSecretKey("");       // 替换为你的 SecretKey
+    request.setSignName("");         // 替换为你的签名
     request.setTemplateId("2386377");     // 替换为你的模板ID
     request.setTemplateParamSet(new String[]{code,validityPeriod}); // 设置模板参数（验证码）
 
